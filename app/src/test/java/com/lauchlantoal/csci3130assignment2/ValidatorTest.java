@@ -13,7 +13,7 @@ public class ValidatorTest {
         Validator tester = new Validator();
         assertEquals(tester.validate("password"),1);
         assertEquals(tester.validate("PASSWORD"),1);
-        assertEquals(tester.validate("pASSwORd"),1);
+        assertEquals(tester.validate("pASSwORd"),2);
         assertEquals(tester.validate("notpassword"),2);
     }
 
@@ -23,6 +23,13 @@ public class ValidatorTest {
         assertEquals(tester.validate(""),1);
         assertEquals(tester.validate("hello"),1);
         assertEquals(tester.validate("hello there"),2);
+    }
+
+    @Test
+    public void validateMultipleCases(){
+        Validator tester = new Validator();
+        assertEquals(tester.validate("what'shappening"),2);
+        assertEquals(tester.validate("whAt'shappening"),3);
     }
 
     @Test

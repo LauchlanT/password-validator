@@ -17,6 +17,9 @@ public class Validator {
         if(password.length() >= 8){
             passed++;
         }
+        if(!password.toUpperCase().equals(password) && !password.toLowerCase().equals(password)){
+            passed++;
+        }
         return passed;
     }
 
