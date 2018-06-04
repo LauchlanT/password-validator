@@ -11,32 +11,39 @@ public class ValidatorTest {
     @Test
     public void validateNotPassword() {
         Validator tester = new Validator();
-        assertEquals(tester.validate("password"),1);
-        assertEquals(tester.validate("PASSWORD"),1);
-        assertEquals(tester.validate("pASSwORd"),2);
-        assertEquals(tester.validate("notpassword"),2);
+        assertEquals(tester.validate("password"),2);
+        assertEquals(tester.validate("PASSWORD"),2);
+        assertEquals(tester.validate("pASSwORd"),3);
+        assertEquals(tester.validate("notpassword"),3);
     }
 
     @Test
     public void validateProperLength() {
         Validator tester = new Validator();
         assertEquals(tester.validate(""),1);
-        assertEquals(tester.validate("hello"),1);
-        assertEquals(tester.validate("hello there"),2);
+        assertEquals(tester.validate("hello"),2);
+        assertEquals(tester.validate("hello there"),3);
     }
 
     @Test
-    public void validateMultipleCases(){
+    public void validateMultipleCases() {
         Validator tester = new Validator();
-        assertEquals(tester.validate("what'shappening"),2);
-        assertEquals(tester.validate("whAt'shappening"),3);
+        assertEquals(tester.validate("what'shappening"),3);
+        assertEquals(tester.validate("whAt'shappening"),4);
     }
 
     @Test
-    public void validateContainsNumber(){
+    public void validateContainsNumber() {
         Validator tester = new Validator();
-        assertEquals(tester.validate("thisHasNoNumber"),3);
-        assertEquals(tester.validate("thisHas1Number"),4);
+        assertEquals(tester.validate("thisHasNoNumber"),4);
+        assertEquals(tester.validate("thisHas1Number"),5);
+    }
+
+    @Test
+    public void validateHasFourOrMoreNonDigits() {
+        Validator tester = new Validator();
+        assertEquals(tester.validate("273777288818736482yEh88"),4);
+        assertEquals(tester.validate("This2828289819"),5);
     }
 
     @Test

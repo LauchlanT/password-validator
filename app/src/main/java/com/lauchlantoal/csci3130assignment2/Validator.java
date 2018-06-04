@@ -26,6 +26,15 @@ public class Validator {
                 break;
             }
         }
+        int nonDigitCount = 0;
+        for(int i = 0; i < password.length(); i++){
+            if(!Character.isDigit(password.charAt(i))){
+                if(++nonDigitCount >= 4){
+                    passed++;
+                    break;
+                }
+            }
+        }
         return passed;
     }
 
