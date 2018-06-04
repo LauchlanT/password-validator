@@ -33,6 +33,13 @@ public class ValidatorTest {
     }
 
     @Test
+    public void validateContainsNumber(){
+        Validator tester = new Validator();
+        assertEquals(tester.validate("thisHasNoNumber"),3);
+        assertEquals(tester.validate("thisHas1Number"),4);
+    }
+
+    @Test
     public void validateNullHandling() {
         Validator tester = new Validator();
         assertEquals(tester.validate(null), 1);

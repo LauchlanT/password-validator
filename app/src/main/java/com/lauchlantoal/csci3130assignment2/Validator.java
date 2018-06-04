@@ -20,6 +20,12 @@ public class Validator {
         if(!password.toUpperCase().equals(password) && !password.toLowerCase().equals(password)){
             passed++;
         }
+        for(int i = 0; i < password.length(); i++){
+            if(Character.isDigit(password.charAt(i))){
+                passed++;
+                break;
+            }
+        }
         return passed;
     }
 
