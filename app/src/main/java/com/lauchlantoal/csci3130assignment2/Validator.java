@@ -1,12 +1,25 @@
 package com.lauchlantoal.csci3130assignment2;
 
+/**
+ * A class for validating passwords.
+ */
 public class Validator {
 
+    /**
+     * The constructor for the Validator class.
+     */
     public Validator(){
 
     }
 
+    /**
+     * Checks a string against different rules to determine the strength of the password.
+     *
+     * @param password Accepts a string as the password to validate.
+     * @return Returns an int representing the number of requirements the password meets.
+     */
     public int validate(String password){
+
         int passed = 0;
         if(password == null){
             password = "";
@@ -36,6 +49,7 @@ public class Validator {
             }
         }
         return passed;
+
     }
 
 }
